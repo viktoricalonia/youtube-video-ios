@@ -1,7 +1,7 @@
 import Foundation
 
-struct Video {
-  var videoId: String
+struct Video: Equatable, Identifiable {
+  var id: String
   var videoUrlString: String
   var title: String
   var thumbnailUrlString: String
@@ -9,15 +9,15 @@ struct Video {
 
 extension Video {
   static func stub(
-    videoId: String = UUID().uuidString,
+    id: String = UUID().uuidString,
     videoUrlString: String = UUID().uuidString,
     title: String = UUID().uuidString,
     thumbnailUrlString: String = UUID().uuidString
   ) -> Video {
-    .init(videoId: videoId, videoUrlString: videoUrlString, title: title, thumbnailUrlString: thumbnailUrlString)
+    .init(id: id, videoUrlString: videoUrlString, title: title, thumbnailUrlString: thumbnailUrlString)
   }
 
   static var stub: Video {
-    Video(videoId: "", videoUrlString: "", title: "", thumbnailUrlString: "")
+    Video(id: "", videoUrlString: "", title: "", thumbnailUrlString: "")
   }
 }
