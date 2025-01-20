@@ -9,6 +9,7 @@ class ListCoordinator: NavigationCoordinator {
 
 extension ListCoordinator {
   func pushListController() {
-    navigation.pushViewController(UIViewController(), animated: true)
+    let vc = R.storyboard.list.listTableController()!
+    navigation.pushViewController(vc, animated: true)
   }
 }
