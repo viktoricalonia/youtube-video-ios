@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0B0826802D3E982C003B7636 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 0B08267F2D3E982C003B7636 /* RswiftLibrary */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		0B0825F22D3D3DF6003B7636 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -30,7 +34,7 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		0B0826032D3D3DF6003B7636 /* Exceptions for "Youtube" folder in "Youtube" target */ = {
+		0B0826032D3D3DF6003B7636 /* PBXFileSystemSynchronizedBuildFileExceptionSet */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Config/Info.plist,
@@ -40,14 +44,7 @@
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		0B0825DD2D3D3DF5003B7636 /* Youtube */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				0B0826032D3D3DF6003B7636 /* Exceptions for "Youtube" folder in "Youtube" target */,
-			);
-			path = Youtube;
-			sourceTree = "<group>";
-		};
+		0B0825DD2D3D3DF5003B7636 /* Youtube */ = {isa = PBXFileSystemSynchronizedRootGroup; exceptions = (0B0826032D3D3DF6003B7636 /* PBXFileSystemSynchronizedBuildFileExceptionSet */, ); path = Youtube; sourceTree = "<group>"; };
 		0B0825F42D3D3DF6003B7636 /* YoutubeTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = YoutubeTests;
@@ -65,6 +62,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B0826802D3E982C003B7636 /* RswiftLibrary in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -119,12 +117,14 @@
 			buildRules = (
 			);
 			dependencies = (
+				0B0826842D3E9852003B7636 /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				0B0825DD2D3D3DF5003B7636 /* Youtube */,
 			);
 			name = Youtube;
 			packageProductDependencies = (
+				0B08267F2D3E982C003B7636 /* RswiftLibrary */,
 			);
 			productName = Youtube;
 			productReference = 0B0825DB2D3D3DF5003B7636 /* Youtube.app */;
@@ -208,6 +208,9 @@
 			);
 			mainGroup = 0B0825D22D3D3DF5003B7636;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				0B08267E2D3E982C003B7636 /* XCRemoteSwiftPackageReference "R" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0B0825DC2D3D3DF5003B7636 /* Products */;
 			projectDirPath = "";
@@ -278,6 +281,10 @@
 			isa = PBXTargetDependency;
 			target = 0B0825DA2D3D3DF5003B7636 /* Youtube */;
 			targetProxy = 0B0825FC2D3D3DF6003B7636 /* PBXContainerItemProxy */;
+		};
+		0B0826842D3E9852003B7636 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 0B0826832D3E9852003B7636 /* RswiftGenerateInternalResources */;
 		};
 /* End PBXTargetDependency section */
 
@@ -575,6 +582,29 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		0B08267E2D3E982C003B7636 /* XCRemoteSwiftPackageReference "R" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.8.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		0B08267F2D3E982C003B7636 /* RswiftLibrary */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B08267E2D3E982C003B7636 /* XCRemoteSwiftPackageReference "R" */;
+			productName = RswiftLibrary;
+		};
+		0B0826832D3E9852003B7636 /* RswiftGenerateInternalResources */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = "plugin:RswiftGenerateInternalResources";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 0B0825D32D3D3DF5003B7636 /* Project object */;
 }
