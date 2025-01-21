@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0B0826802D3E982C003B7636 /* RswiftLibrary in Frameworks */ = {isa = PBXBuildFile; productRef = 0B08267F2D3E982C003B7636 /* RswiftLibrary */; };
 		0B08274A2D3EA174003B7636 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0827492D3EA174003B7636 /* SDWebImage */; };
+		0B0827532D3F4E42003B7636 /* SVProgressHUD in Frameworks */ = {isa = PBXBuildFile; productRef = 0B0827522D3F4E42003B7636 /* SVProgressHUD */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -70,6 +71,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B0827532D3F4E42003B7636 /* SVProgressHUD in Frameworks */,
 				0B08274A2D3EA174003B7636 /* SDWebImage in Frameworks */,
 				0B0826802D3E982C003B7636 /* RswiftLibrary in Frameworks */,
 			);
@@ -135,6 +137,7 @@
 			packageProductDependencies = (
 				0B08267F2D3E982C003B7636 /* RswiftLibrary */,
 				0B0827492D3EA174003B7636 /* SDWebImage */,
+				0B0827522D3F4E42003B7636 /* SVProgressHUD */,
 			);
 			productName = Youtube;
 			productReference = 0B0825DB2D3D3DF5003B7636 /* Youtube.app */;
@@ -221,6 +224,7 @@
 			packageReferences = (
 				0B08267E2D3E982C003B7636 /* XCRemoteSwiftPackageReference "R" */,
 				0B0827482D3EA174003B7636 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				0B0827512D3F4E42003B7636 /* XCRemoteSwiftPackageReference "SVProgressHUD" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 0B0825DC2D3D3DF5003B7636 /* Products */;
@@ -611,6 +615,14 @@
 				minimumVersion = 5.20.0;
 			};
 		};
+		0B0827512D3F4E42003B7636 /* XCRemoteSwiftPackageReference "SVProgressHUD" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SVProgressHUD/SVProgressHUD";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.3.1;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -627,6 +639,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0B0827482D3EA174003B7636 /* XCRemoteSwiftPackageReference "SDWebImage" */;
 			productName = SDWebImage;
+		};
+		0B0827522D3F4E42003B7636 /* SVProgressHUD */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0B0827512D3F4E42003B7636 /* XCRemoteSwiftPackageReference "SVProgressHUD" */;
+			productName = SVProgressHUD;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -1,5 +1,5 @@
 {
-  "originHash" : "c2e5c9d99c50e189485490fd7d5fa161e99746b38895ffe8515641d212d7d2ce",
+  "originHash" : "bc508033c180652df85122f3396bf8f85a9a2707df19c3ee3db8f6dfba2c8157",
   "pins" : [
     {
       "identity" : "r.swift",
@@ -17,6 +17,15 @@
       "state" : {
         "revision" : "10d06f6a33bafae8c164fbfd1f03391f6d4692b3",
         "version" : "5.20.0"
+      }
+    },
+    {
+      "identity" : "svprogresshud",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/SVProgressHUD/SVProgressHUD",
+      "state" : {
+        "revision" : "c33f7c775ba7feea6047a1fc3257f2e5863b44f7",
+        "version" : "2.3.1"
       }
     },
     {

@@ -14,7 +14,11 @@ extension Video {
     title: String = UUID().uuidString,
     thumbnailUrlString: String = UUID().uuidString
   ) -> Video {
-    .init(id: id, videoUrlString: videoUrlString, title: title, thumbnailUrlString: thumbnailUrlString)
+    .init(
+      id: id,
+      videoUrlString: videoUrlString,
+      title: title,
+      thumbnailUrlString: thumbnailUrlString)
   }
 
   static var stub: Video {
