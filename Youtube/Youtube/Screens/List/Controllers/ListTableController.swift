@@ -2,11 +2,12 @@
 import Foundation
 import UIKit
 
-import SVProgressHUD
+import RswiftResources
 
 class ListTableController: UITableViewController {
 
   var viewModel: ListViewModel!
+  var hudPresenter: ProgressHUDPresenter!
 
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -28,13 +29,18 @@ private extension ListTableController {
     self.refreshControl = refreshControl
   }
 
+  @objc
   func refreshData() {
-    do {
-      self.refreshControl?.beginRefreshing()
-      try async viewModel.fetchItems()
-    } catch {
-
-
+    Task { [weak self] in
+      do {
+        self?.refreshControl?.beginRefreshing()
+        try await self?.viewModel.fetchItems()
+        
+        self?.tableView.reloadData()
+        self?.refreshControl?.endRefreshing()
+      } catch {
+        self?.showDismissableError(with: error.localizedDescription)
+      }
     }
   }
 }
