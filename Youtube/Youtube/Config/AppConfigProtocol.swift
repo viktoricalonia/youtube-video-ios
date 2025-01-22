@@ -1,6 +1,7 @@
 import Foundation
 
 protocol AppConfigProtocol {
+  var baseURL: String { get }
   var apiKey: String { get }
 }
 
