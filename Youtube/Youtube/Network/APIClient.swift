@@ -44,7 +44,7 @@ class APIClient: APIClientProtocol {
     parameterJSON: [String: any CustomStringConvertible]?,
     serializer: @escaping (Data) throws -> T
   ) async throws -> T {
-    var headers = [
+    let headers = [
       "Content-Type": "application/json",
       "Authorization": "Bearer \(sessionToken)",
     ]
@@ -75,13 +75,11 @@ class APIClient: APIClientProtocol {
     request.httpMethod = method.rawValue.uppercased()
     request.allHTTPHeaderFields = headers
     request.httpBody = httpBody
+    print(request.url!)
 
-    let (data, response) = try await session.data(from: url)
-    if let response = response as? HTTPURLResponse {
-      return try serializer(data)
-    } else {
-      throw ResponseError.noResponse
-    }
+    let (data, _) = try await session.data(from: url)
+    print(String(data: data, encoding: .utf8)!)
+    return try serializer(data)
   }
 }
 

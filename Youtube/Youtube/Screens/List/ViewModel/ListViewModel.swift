@@ -22,14 +22,12 @@ class YoutubeVidListViewModel: ListViewModel {
 
   @discardableResult
   func fetchItems() async throws -> [Video] {
-    items = try await api.getVideoList()
-    return items
+    try await api.getVideoList()
   }
 
   @discardableResult
   func searchItems(query: String) async throws -> [Video] {
-    items = try await api.searckVideoList(query: query)
-    return items
+    try await api.getSearchVideoList(query: query)
   }
 }
 

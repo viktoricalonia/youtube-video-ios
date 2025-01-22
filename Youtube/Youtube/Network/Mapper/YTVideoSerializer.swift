@@ -1,9 +1,9 @@
 import Foundation
 
 enum YTVideosSerializer: DecodeSerializerProtocol {
-  typealias ResponseModel = [YTVideo]
+  typealias ResponseModel = YTVideoResponse
 
-  static func make(_ data: Data) throws -> [YTVideo] {
+  static func make(_ data: Data) throws -> YTVideoResponse {
     return try transform(data: data)
   }
 }

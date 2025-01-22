@@ -3,24 +3,25 @@ import Foundation
 protocol VideoListAPI {
   func getVideoList() async throws -> [Video]
 
-  func searchVideoList(query: String) async throws -> [Video]
+  func getSearchVideoList(query: String) async throws -> [Video]
 }
 
 extension YoutubeClient: VideoListAPI {
   func getVideoList() async throws -> [Video] {
     let params = [
       "part": "snippet",
-      "fields": "items(id, snippet(title, thumbnails))",
+      "fields": "items(id, snippet(title, thumbnails, publishedAt))",
       "chart": "mostPopular",
       "regionCode": "US",
     ]
 
-    let videos = try await get(
+    let response = try await get(
       endPoint: "/videos",
       params: params,
-      serializer: YTVideosSerializer.make)
+      serializer: YTVideosSerializer.make
+    )
 
-    return videos.compactMap {
+    return response.items.compactMap {
       Video(
         id: $0.id,
         title: $0.snippet.title,
@@ -29,20 +30,23 @@ extension YoutubeClient: VideoListAPI {
     }
   }
 
-  func searchVideoList(query: String) async throws -> [Video] {
+  func getSearchVideoList(query _: String) async throws -> [Video] {
     let params = [
-      "part": "snippet,",
-      "fields": "items(id,snippet(title,thumbnails))",
+      "part": "snippet",
+      "fields": "items(id, snippet(title, thumbnails, publishedAt))",
+      "regionCode": "US",
+      "type": "video"
     ]
 
-    let videos = try await get(
+    let response = try await get(
       endPoint: "/search",
       params: params,
-      serializer: YTVideosSerializer.make)
+      serializer: YTSearchVideosSerializer.make
+    )
 
-    return videos.compactMap {
+    return response.items.compactMap {
       Video(
-        id: $0.id,
+        id: $0.id.videoId,
         title: $0.snippet.title,
         thumbnailUrlString: $0.snippet.thumbnails.high.url
       )

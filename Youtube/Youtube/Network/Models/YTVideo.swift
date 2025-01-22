@@ -20,3 +20,7 @@ struct YTVideo: Decodable {
   let id: String
   let snippet: YTVideoSnippet
 }
+
+struct YTVideoResponse: Decodable {
+  let items: [YTVideo]
+}
