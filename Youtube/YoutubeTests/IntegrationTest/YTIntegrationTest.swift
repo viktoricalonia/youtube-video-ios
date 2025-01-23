@@ -3,8 +3,10 @@ import Testing
 @testable import Youtube
 
 struct YTIntegrationTest {
+  let client = YoutubeClient(config: AppConfig())
+  
   @Test func getVideos() async throws {
-    let api: VideoListAPI = YoutubeClient(config: AppConfig())
+    let api: VideoListAPI = client
 
     let videos = try await api.getVideoList()
 
@@ -12,7 +14,7 @@ struct YTIntegrationTest {
   }
 
   @Test func getSeachVideos() async throws {
-    let api: VideoListAPI = YoutubeClient(config: AppConfig())
+    let api: VideoListAPI = client
 
     let videos = try await api.getSearchVideoList(query: "swift")
 

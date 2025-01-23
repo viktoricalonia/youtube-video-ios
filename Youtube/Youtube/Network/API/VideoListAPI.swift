@@ -30,8 +30,9 @@ extension YoutubeClient: VideoListAPI {
     }
   }
 
-  func getSearchVideoList(query _: String) async throws -> [Video] {
+  func getSearchVideoList(query: String) async throws -> [Video] {
     let params = [
+      "q": query,
       "part": "snippet",
       "fields": "items(id, snippet(title, thumbnails, publishedAt))",
       "regionCode": "US",

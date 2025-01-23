@@ -10,6 +10,7 @@ class ListCoordinator: NavigationCoordinator {
 extension ListCoordinator {
   func pushListController() {
     let vc = R.storyboard.list.listTableController()!
+    vc.viewModel = YoutubeVidListViewModel(api: services.videoAPI)
     navigation.pushViewController(vc, animated: true)
   }
 }

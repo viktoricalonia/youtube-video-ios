@@ -4,7 +4,7 @@ import UIKit
 final class UnitTestCoordinator: Coordinator {
   var children: [Coordinator] = []
 
-  var onFinish: SingleResult<Coordinator>?
+  var onFinish: ((Coordinator) -> Void)?
 
   let window: UIWindow
 

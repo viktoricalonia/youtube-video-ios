@@ -22,7 +22,7 @@ class APIClient: APIClientProtocol {
   private(set) var sessionToken: String = ""
 
   deinit {
-    URLSession.shared.getAllTasks { tasks in
+    session.getAllTasks { tasks in
       tasks
         .filter { $0.state == .running }
         .forEach { $0.cancel() }
@@ -30,7 +30,7 @@ class APIClient: APIClientProtocol {
   }
 
   init(baseUrl: String) {
-    session = URLSession.shared
+    session = URLSession(configuration: URLSessionConfiguration.default)
     self.baseUrl = baseUrl
   }
 

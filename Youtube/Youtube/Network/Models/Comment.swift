@@ -1,6 +1,6 @@
 import Foundation
 
-struct Comment: Equatable, Identifiable {
+struct Comment: Hashable, Identifiable {
   var id: String
   var text: String
   var actorName: String

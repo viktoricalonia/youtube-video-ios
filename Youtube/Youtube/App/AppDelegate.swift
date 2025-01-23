@@ -9,6 +9,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     // Override point for customization after application launch.
+    
+    let services = AppServices(config: AppConfig())
+    self.services = services
+    applyAppStyle()
+
     return true
   }
 

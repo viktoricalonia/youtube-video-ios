@@ -4,28 +4,30 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ListCell" customModule="Youtube" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="193"/>
+            <rect key="frame" x="0.0" y="0.0" width="393" height="220"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ebg-hM-vA0">
-                    <rect key="frame" x="0.0" y="0.0" width="393" height="193"/>
+                    <rect key="frame" x="0.0" y="0.0" width="393" height="212"/>
                     <subviews>
-                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TBM-on-sAB">
-                            <rect key="frame" x="0.0" y="0.0" width="393" height="153"/>
+                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="TBM-on-sAB">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="172"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="172" id="0dJ-We-UaG"/>
+                            </constraints>
                         </imageView>
                         <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wEZ-hE-FEJ">
-                            <rect key="frame" x="0.0" y="153" width="393" height="40"/>
+                            <rect key="frame" x="0.0" y="172" width="393" height="40"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5qZ-aZ-6gS">
                                     <rect key="frame" x="0.0" y="0.0" width="10" height="40"/>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="10" id="yI4-jH-185"/>
                                     </constraints>
@@ -45,10 +47,10 @@
                 </stackView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="ebg-hM-vA0" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="GEr-0l-Ncj"/>
-                <constraint firstAttribute="bottom" secondItem="ebg-hM-vA0" secondAttribute="bottom" id="JO1-t3-VgG"/>
+                <constraint firstAttribute="bottom" secondItem="ebg-hM-vA0" secondAttribute="bottom" constant="8" id="JO1-t3-VgG"/>
                 <constraint firstItem="ebg-hM-vA0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="kuK-YB-oDq"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="ebg-hM-vA0" secondAttribute="trailing" id="z1e-3k-byb"/>
             </constraints>
@@ -60,9 +62,4 @@
             <point key="canvasLocation" x="93.89312977099236" y="-243.3098591549296"/>
         </view>
     </objects>
-    <resources>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-    </resources>
 </document>

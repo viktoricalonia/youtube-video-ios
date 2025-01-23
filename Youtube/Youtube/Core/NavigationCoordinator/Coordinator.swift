@@ -3,7 +3,7 @@ import UIKit
 
 protocol Coordinator: AnyObject {
   var navigation: UINavigationController { get }
-  var onFinish: SingleResult<Coordinator>? { get set }
+  var onFinish: ((Coordinator) -> Void)? { get set }
   func start()
 }
 

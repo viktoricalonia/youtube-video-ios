@@ -1,6 +1,6 @@
 import Foundation
 
-struct Video: Equatable, Identifiable {
+struct Video: Hashable, Identifiable {
   var id: String
   var title: String
   var thumbnailUrlString: String

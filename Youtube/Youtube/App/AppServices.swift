@@ -1,9 +1,14 @@
 import Foundation
 
 class AppServices: ServicesProtocol {
-  var api: any APIClientProtocol
+  let api: any APIClientProtocol
+  
+  let videoAPI: any VideoListAPI
 
   init(config: AppConfigProtocol) {
-    api = APIClient(baseUrl: "")
+    let api = YoutubeClient(config: config)
+    
+    self.api = api
+    self.videoAPI = api
   }
 }

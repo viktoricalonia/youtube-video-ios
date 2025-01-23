@@ -6,7 +6,7 @@ final class AppCoordinator: ParentCoordinator {
 
   var children: [Coordinator] = []
 
-  var onFinish: SingleResult<Coordinator>?
+  var onFinish: ((Coordinator) -> Void)?
 
   let window: UIWindow
   let windowHandler: WindowHandler

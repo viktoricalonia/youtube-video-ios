@@ -1,6 +1,6 @@
 import Foundation
 
-class YoutubeClient: APIClient {
+final class YoutubeClient: APIClient {
   let apiKey: String
   
   init(config: AppConfigProtocol) {
