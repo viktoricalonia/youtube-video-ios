@@ -5,6 +5,7 @@ protocol VideoPageProtocol {
   var video: Video { get }
   
   func getComments() async throws -> [Comment]
+  func getNextComments() async throws -> [Comment]
 }
 
 final class VideoPageViewModel: VideoPageProtocol {
@@ -17,14 +18,25 @@ final class VideoPageViewModel: VideoPageProtocol {
     self.video = video
     self.api = api
   }
-  
+
   func getComments() async throws -> [Comment] {
+    let response = try await api.getComments(videoId: video.id, pageToken: nextPageToken)
+    return response.items.map {
+      Comment(
+        id: $0.id,
+        text: $0.snippet.topLevelComment.snippet.textDisplay,
+        actorName: $0.snippet.topLevelComment.snippet.authorDisplayName,
+        publishedDateText: $0.snippet.topLevelComment.snippet.publishedAt)
+    }
+  }
+  
+  func getNextComments() async throws -> [Comment] {
     let response = try await api.getComments(videoId: video.id, pageToken: nextPageToken)
     nextPageToken = response.nextPageToken
     return response.items.map {
       Comment(
         id: $0.id,
-        text: $0.snippet.topLevelComment.snippet.textDisplay ?? "",
+        text: $0.snippet.topLevelComment.snippet.textDisplay,
         actorName: $0.snippet.topLevelComment.snippet.authorDisplayName,
         publishedDateText: $0.snippet.topLevelComment.snippet.publishedAt)
     }
