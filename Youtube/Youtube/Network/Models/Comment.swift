@@ -4,8 +4,7 @@ struct Comment: Hashable, Identifiable {
   var id: String
   var text: String
   var actorName: String
-  var isReply: Bool
-  var parentCommentId: String?
+  var publishedDateText: String
 }
 
 extension Comment {
@@ -13,12 +12,12 @@ extension Comment {
     id: String = UUID().uuidString,
     text: String = UUID().uuidString,
     actorName: String = UUID().uuidString,
-    isReply: Bool = false
+    publishedDateText: String = UUID().uuidString
   ) -> Comment {
-    .init(id: id, text: text, actorName: actorName, isReply: isReply)
+    .init(id: id, text: text, actorName: actorName, publishedDateText: publishedDateText)
   }
 
   static var stub: Comment {
-    Comment(id: "", text: "", actorName: "", isReply: false)
+    Comment(id: "", text: "", actorName: "", publishedDateText: "")
   }
 }
