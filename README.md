@@ -1,6 +1,13 @@
 <h1> Youtube Videos App </h1>
 <h2> Integration of Youtube Videos App </h2>
 
+## Software Design
+1. MVVM
+2. Navigation Coordinator
+3. Dependency Injection
+4. Strategy Pattern
+5. SOLID Principle
+
 ## Stack:
 1. UIKit
 2. Swift Testing
