@@ -13,6 +13,10 @@
 2. Swift Testing
 3. WKWebView
 4. Autolayout
+5. Native Network Module (URLSession)
+6. Swift Concurrency
+7. Swift async/await
+8. DiffableTableViewDatasource
 
 ## Dependecies:
 1. [R.swift](https://github.com/mac-cain13/R.swift)
