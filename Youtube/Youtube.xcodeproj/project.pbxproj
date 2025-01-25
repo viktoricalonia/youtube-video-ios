@@ -121,6 +121,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0B0826042D3D3DF6003B7636 /* Build configuration list for PBXNativeTarget "Youtube" */;
 			buildPhases = (
+				3A16FEC32D4522F400B541F9 /* Variable Injector */,
 				0B0825D72D3D3DF5003B7636 /* Sources */,
 				0B0825D82D3D3DF5003B7636 /* Frameworks */,
 				0B0825D92D3D3DF5003B7636 /* Resources */,
@@ -261,6 +262,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A16FEC32D4522F400B541F9 /* Variable Injector */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Variable Injector";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport $(grep -v '^#' .env | xargs)\nif which variable-injector >/dev/null; then\n  variable-injector --file ${SRCROOT}/Youtube/Config/AppConfigProtocol.swift --verbose # Pass your parameters\nelse\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0B0825D72D3D3DF5003B7636 /* Sources */ = {
