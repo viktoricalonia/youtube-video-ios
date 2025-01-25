@@ -17,6 +17,7 @@
 6. Swift Concurrency
 7. Swift async/await
 8. DiffableTableViewDatasource
+9. Config Variable Injection
 
 ## Dependecies:
 1. [R.swift](https://github.com/mac-cain13/R.swift)
@@ -27,3 +28,6 @@
 
 ### Special Note:
 Some videos will not play/embed due to [copyright](https://stackoverflow.com/a/74067543) and [video embed restrictions](https://support.google.com/youtube/answer/6301625?hl=en).
+
+### Variable Injection(For Environment):
+Install [variable-injector](https://github.com/LucianoPAlmeida/variable-injector) to your system, then ask for .env file from me.
