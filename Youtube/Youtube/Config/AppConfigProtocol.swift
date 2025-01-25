@@ -7,5 +7,5 @@ protocol AppConfigProtocol {
 
 struct AppConfig: AppConfigProtocol {
   let baseURL: String = "https://www.googleapis.com/youtube/v3"
-  let apiKey: String = "AIzaSyDdWAyNL_zGAEF90Hez5S2028J2ZVuTVAI"
+  let apiKey: String = "AIzaSyAC0PW6h7e0EuINLBmiVUHAFOblUEVW5zs"
 }
