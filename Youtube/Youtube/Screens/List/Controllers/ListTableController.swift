@@ -5,9 +5,10 @@ import UIKit
 import RswiftResources
 
 final class ListTableController: UITableViewController {
+  var onTapItem: ((Video) -> Void)?
 
   var viewModel: ListViewModel!
-  var hudPresenter: ProgressHUDPresenter!
+  lazy var hudPresenter: ProgressHUDPresenter = self
   
   private lazy var dataSource: UITableViewDiffableDataSource<Section, Video> = makeDataSource()
 
@@ -28,7 +29,7 @@ private extension ListTableController {
 
 private extension ListTableController {
   func makeDataSource() -> UITableViewDiffableDataSource<Section, Video>{
-    return UITableViewDiffableDataSource<Section, Video>(
+    let dataSource = UITableViewDiffableDataSource<Section, Video>(
       tableView: tableView,
       cellProvider: { tableView, indexPath, cellViewModel in
         let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.listCell.name, for: indexPath)
@@ -37,6 +38,8 @@ private extension ListTableController {
         }
         return cell
     })
+    dataSource.defaultRowAnimation = .fade
+    return dataSource
   }
 }
 
@@ -70,7 +73,7 @@ private extension ListTableController {
     snapshot.appendSections([.main])
     snapshot.appendItems(items)
     
-    dataSource.applySnapshotUsingReloadData(snapshot)
+    dataSource.apply(snapshot)
   }
 }
 
@@ -90,7 +93,9 @@ private extension ListTableController {
           self?.refreshControl?.endRefreshing()
         }
       } catch {
-        self?.showDismissableError(with: error.localizedDescription)
+        Task { @MainActor in
+          self?.hudPresenter.showDismissableError(with: error.localizedDescription)
+        }
       }
     }
   }
@@ -98,32 +103,24 @@ private extension ListTableController {
   @objc
   func refreshData() {
     self.refreshControl?.beginRefreshing()
-    Task { [weak self] in
+    Task { @MainActor [weak self] in
       do {
         let items = try await self?.viewModel.fetchItems()
         
-        Task { @MainActor in
-          self?.reloadItems(items ?? [])
-          self?.refreshControl?.endRefreshing()
-        }
+        self?.reloadItems(items ?? [])
+        self?.refreshControl?.endRefreshing()
       } catch {
-        self?.showDismissableError(with: error.localizedDescription)
+        self?.hudPresenter.showDismissableError(with: error.localizedDescription)
       }
     }
   }
 }
 
 extension ListTableController {
-  override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return viewModel.items.count
-  }
-  
-  override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    if let cell = tableView.dequeueReusableCell(withIdentifier: R.nib.listCell.name, for: indexPath) as? ListCell {
-      cell.viewModel = viewModel.items[indexPath.row]
-      return cell
-    }
-    return UITableViewCell()
+  override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    onTapItem?(
+      dataSource.snapshot().itemIdentifiers[indexPath.row]
+    )
   }
 }
 
@@ -133,5 +130,4 @@ extension ListTableController {
       scrollView.endEditing(true)
     }
   }
-  
 }

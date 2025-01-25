@@ -12,7 +12,6 @@ extension YoutubeClient: VideoListAPI {
       "part": "snippet",
       "fields": "items(id, snippet(title, thumbnails, publishedAt))",
       "chart": "mostPopular",
-      "regionCode": "US",
     ]
 
     let response = try await get(
@@ -35,7 +34,6 @@ extension YoutubeClient: VideoListAPI {
       "q": query,
       "part": "snippet",
       "fields": "items(id, snippet(title, thumbnails, publishedAt))",
-      "regionCode": "US",
       "type": "video"
     ]
 

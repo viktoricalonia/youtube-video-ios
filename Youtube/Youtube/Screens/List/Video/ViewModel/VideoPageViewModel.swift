@@ -24,9 +24,10 @@ final class VideoPageViewModel: VideoPageProtocol {
     return response.items.map {
       Comment(
         id: $0.id,
-        text: $0.snippet.topLevelComment.snippet.textDisplay,
+        text: $0.snippet.topLevelComment.snippet.textOriginal,
         actorName: $0.snippet.topLevelComment.snippet.authorDisplayName,
-        publishedDateText: $0.snippet.topLevelComment.snippet.publishedAt)
+        imageURLString: $0.snippet.topLevelComment.snippet.authorProfileImageUrl,
+        publishedDateText: $0.snippet.topLevelComment.snippet.publishedAt.fromISO86601NoMSDateStringToDate()?.relativeDateString ?? "")
     }
   }
   
@@ -36,9 +37,10 @@ final class VideoPageViewModel: VideoPageProtocol {
     return response.items.map {
       Comment(
         id: $0.id,
-        text: $0.snippet.topLevelComment.snippet.textDisplay,
+        text: $0.snippet.topLevelComment.snippet.textOriginal,
         actorName: $0.snippet.topLevelComment.snippet.authorDisplayName,
-        publishedDateText: $0.snippet.topLevelComment.snippet.publishedAt)
+        imageURLString: $0.snippet.topLevelComment.snippet.authorProfileImageUrl,
+        publishedDateText: $0.snippet.topLevelComment.snippet.publishedAt.fromISO86601NoMSDateStringToDate()?.relativeDateString ?? "")
     }
   }
 }
