@@ -280,7 +280,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport $(grep -v '^#' .env | xargs)\nif which variable-injector >/dev/null; then\n  variable-injector --file ${SRCROOT}/Youtube/Config/AppConfigProtocol.swift --verbose # Pass your parameters\nelse\n";
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\nexport $(grep -v '^#' .env | xargs)\nif which variable-injector >/dev/null; then\n  variable-injector --file ${SRCROOT}/Youtube/Config/AppConfigProtocol.swift --verbose # Pass your parameters\nelse\n  echo \"Warning: Swift Variable Injector not installed, download from https://github.com/LucianoPAlmeida/variable-injector\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -334,7 +334,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G842SQM266;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "${SRCROOT}";
 				INFOPLIST_FILE = Youtube/Config/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -364,7 +366,9 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = G842SQM266;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "${SRCROOT}";
 				INFOPLIST_FILE = Youtube/Config/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
